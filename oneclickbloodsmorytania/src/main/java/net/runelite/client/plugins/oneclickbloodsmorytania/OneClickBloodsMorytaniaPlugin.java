@@ -316,12 +316,11 @@ public class OneClickBloodsMorytaniaPlugin extends Plugin {
 
         if (isInPOH())
         {
-            if (client.getEnergy()<config.runEnergy())
-            {
-                setMenuEntry(event,drinkFromPool());
+            
+        setMenuEntry(event,drinkFromPool());
                 return;
-            }
-            setMenuEntry(event,useFairyRing());
+            
+        setMenuEntry(event,useFairyRing());
             return;
         }
         if (isInMorytaniaHideout1())
