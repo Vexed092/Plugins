@@ -316,7 +316,7 @@ public class OneClickBloodsMorytaniaPlugin extends Plugin {
 
         if (isInPOH())
         {
-            if (client.getEnergy()<config.runEnergy())
+            if (client.getEnergy()<40)
             {
                 setMenuEntry(event,drinkFromPool());
                 return;
