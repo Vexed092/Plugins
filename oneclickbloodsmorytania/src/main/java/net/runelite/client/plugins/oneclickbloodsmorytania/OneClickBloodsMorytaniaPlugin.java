@@ -252,60 +252,60 @@ public class OneClickBloodsMorytaniaPlugin extends Plugin {
                 Widget activebloodEss = getInventoryItem(ItemID.BLOOD_ESSENCE_ACTIVE);
                 if (activebloodEss == null)
                 {setMenuEntry(event,withdrawBloodEssence());
-                 bankingState=0;
+                 bankingState=1;
                  return;}
                         
                 case 1:
                     setMenuEntry(event,withdrawEssence());
-                    bankingState = 1;
+                    bankingState = 2;
                     return;
                 case 2:
                     if (colossalPouch!=null)
                     {
                         setMenuEntry(event,fillPouch(colossalPouch));
-                        bankingState = 3;
+                        bankingState = 4;
                         return;
                     }
                     if (giantPouch!=null)
                     {
                         setMenuEntry(event,fillPouch(giantPouch));
-                        bankingState = 2;
+                        bankingState = 3;
                         return;
                     }
                 case 3:
                     if (largePouch!=null)
                     {
                         setMenuEntry(event,fillPouch(largePouch));
-                        bankingState = 3;
+                        bankingState = 4;
                         return;
                     }
                 case 4:
                     setMenuEntry(event,withdrawEssence());
-                    bankingState = 4;
+                    bankingState = 5;
                     return;
                 case 5:
                     if (colossalPouch!=null)
                     {
                         setMenuEntry(event,fillPouch(colossalPouch));
-                        bankingState = 6;
+                        bankingState = 7;
                         return;
                     }
                     if (mediumPouch!=null)
                     {
                         setMenuEntry(event,fillPouch(mediumPouch));
-                        bankingState = 5;
+                        bankingState = 6;
                         return;
                     }
                 case 6:
                     if (smallPouch!=null)
                     {
                         setMenuEntry(event,fillPouch(smallPouch));
-                        bankingState = 6;
+                        bankingState = 7;
                         return;
                     }
                 case 7:
                     setMenuEntry(event,withdrawEssence());
-                    bankingState = 7;
+                    bankingState = 8;
                     return;
                 case 8:
                     if (teleToPOH()!=null)
