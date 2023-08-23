@@ -246,11 +246,20 @@ public class OneClickBloodsMorytaniaPlugin extends Plugin {
             }
             switch (bankingState)
             {
-                case 0:
+                    case 0:
+                Widget bloodEss = getInventoryItem(ItemID.BLOOD_ESSENCE);
+            if (bloodEss == null) {
+                Widget activebloodEss = getInventoryItem(ItemID.BLOOD_ESSENCE_ACTIVE);
+                if (activebloodEss == null)
+                {setMenuEntry(event,withdrawBloodEssence());
+                 bankingState=0;
+                 return;}
+                        
+                case 1:
                     setMenuEntry(event,withdrawEssence());
                     bankingState = 1;
                     return;
-                case 1:
+                case 2:
                     if (colossalPouch!=null)
                     {
                         setMenuEntry(event,fillPouch(colossalPouch));
@@ -263,18 +272,18 @@ public class OneClickBloodsMorytaniaPlugin extends Plugin {
                         bankingState = 2;
                         return;
                     }
-                case 2:
+                case 3:
                     if (largePouch!=null)
                     {
                         setMenuEntry(event,fillPouch(largePouch));
                         bankingState = 3;
                         return;
                     }
-                case 3:
+                case 4:
                     setMenuEntry(event,withdrawEssence());
                     bankingState = 4;
                     return;
-                case 4:
+                case 5:
                     if (colossalPouch!=null)
                     {
                         setMenuEntry(event,fillPouch(colossalPouch));
@@ -287,18 +296,18 @@ public class OneClickBloodsMorytaniaPlugin extends Plugin {
                         bankingState = 5;
                         return;
                     }
-                case 5:
+                case 6:
                     if (smallPouch!=null)
                     {
                         setMenuEntry(event,fillPouch(smallPouch));
                         bankingState = 6;
                         return;
                     }
-                case 6:
+                case 7:
                     setMenuEntry(event,withdrawEssence());
                     bankingState = 7;
                     return;
-                case 7:
+                case 8:
                     if (teleToPOH()!=null)
                     {
                         setMenuEntry(event,teleToPOH());
@@ -570,7 +579,10 @@ public class OneClickBloodsMorytaniaPlugin extends Plugin {
         }
         return createMenuEntry(7, MenuAction.CC_OP_LOW_PRIORITY, getBankIndex(essence), WidgetInfo.BANK_ITEM_CONTAINER.getId(), false);
     }
-
+    private MenuEntry withdrawBloodEssence() {
+            int bloodEssence = ItemID.BLOOD_ESSENCE;
+            return create MenuEntry (8, MenuAction.CC_OP_LOW_PRIORITY, getBankIndex(bloodEssence), WidgetInfo.BANK_ITEM_CONTAINER.getId(), false);
+    }
     private MenuEntry fillPouch(Widget pouch) {
         return createMenuEntry(9, MenuAction.CC_OP_LOW_PRIORITY, pouch.getIndex(), WidgetInfo.BANK_INVENTORY_ITEMS_CONTAINER.getId(), false);
     }
